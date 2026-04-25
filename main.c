@@ -4,6 +4,6 @@
 #include "inputoutput.h"
 
 int main(void) {
-    
+    readCSVFile();
     return 0;
 }
