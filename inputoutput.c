@@ -4,12 +4,17 @@
 #include <stdlib.h>
 
 float readCSVFile(CSVValues *structArray) {
-
-    FILE *filepntr = fopen("C:/Users/me/CLionProjects/untitled/power_quality_log.csv", "r");
-    if (filepntr == NULL) {
+    char CLIfilepath[128];
+    printf("Please enter a valid filepath for your CSV file:\n");
+    scanf("%s", CLIfilepath);
+    FILE *filepntr = fopen(CLIfilepath, "r"); // test with C:/Users/me/CLionProjects/untitled/power_quality_log.csv
+    while (filepntr == NULL) {
         printf("Could not open CSV file!\n");
-        return 1;
+        printf("Please re-enter a valid filepath for your CSV file:\n");
+        scanf("%s", CLIfilepath);
+        filepntr = fopen(CLIfilepath, "r");
     }
+    printf("File successfully opened!\n");
     char line[256];
     fgets(line, sizeof(line), filepntr);
     int i = 0;
