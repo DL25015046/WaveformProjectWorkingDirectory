@@ -5,15 +5,14 @@
 #include "inputoutput.h"
 
 int main(void) {
-    //float *CSVArray = malloc(7999*sizeof(float));
-    CSVValues structArray[1000];
-    readCSVFile(*structArray); // can put CSVArray
 
-    int i = 30;
+    CSVValues *structArray = malloc(1000*sizeof(CSVValues));
+    readCSVFile(structArray);
+
+    int i = 999; // THIS GOES UP TO 999
     printf("Timestamp: %fms\n", structArray[i].timestamp);
     printf("Frequency: %fHz\n", structArray[i].frequency);
 
-    //printf("\n%f", CSVArray[533+1000]);
-    void free(void *CSVArray);
+    void free(void *structArray);
     return 0;
 }
