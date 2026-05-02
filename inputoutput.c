@@ -14,9 +14,7 @@ typedef struct {
     float THD;
 } CSVValues;
 
-float readCSVFile() {
-
-    float *CSVArray = malloc(1900*sizeof(float));
+float readCSVFile(float *CSVArray) {
 
     FILE *filepntr = fopen("C:/Users/me/CLionProjects/untitled/power_quality_log.csv", "r");
     if (filepntr == NULL) {
@@ -44,20 +42,21 @@ float readCSVFile() {
         TOKEN = strtok(NULL, ",");
         float THD = atof(TOKEN);
 
-        //printf("Time = %fms\n Phase A Voltage = %fV\n Phase B Voltage = %fV\n Phase C Voltage = %fV\n", timestamp, phaseA, phaseB, phaseC);
-        //printf("Line Current = %fA\n Frequency = %fHz\n PowerFactor = %fV\n THD = %fV\n", lineCurrent, frequency, powerFactor, THD);
-        CSVArray[i] = timestamp; CSVArray[i+124] = phaseA; CSVArray[i+249] = phaseB; CSVArray[i+374] = phaseC;
-        CSVArray[i+499] = lineCurrent; CSVArray[i+624] = frequency; CSVArray[i+749] = powerFactor; CSVArray[i+874] = THD;
+        CSVArray[i] = timestamp; CSVArray[i+1000] = phaseA; CSVArray[i+2000] = phaseB; CSVArray[i+3000] = phaseC;
+        CSVArray[i+4000] = lineCurrent; CSVArray[i+5000] = frequency; CSVArray[i+6000] = powerFactor; CSVArray[i+7000] = THD;
 
-        printf("Time = %fms\n Phase A Voltage = %fV\n Phase B Voltage = %fV\n Phase C Voltage = %fV\n", CSVArray[i], CSVArray[i+124], CSVArray[i+249], CSVArray[i+374]);
-        printf("Line Current = %fA\n Frequency = %fHz\n PowerFactor = %fV\n THD = %fV\n", CSVArray[i+499], CSVArray[i+624], CSVArray[i+749], CSVArray[i+874]);
+        printf("Time = %fms\n Phase A Voltage = %fV\n Phase B Voltage = %fV\n Phase C Voltage = %fV\n", CSVArray[i], CSVArray[i+1000], CSVArray[i+2000], CSVArray[i+3000]);
+        printf("Line Current = %fA\n Frequency = %fHz\n PowerFactor = %fV\n THD = %fV\n", CSVArray[i+4000], CSVArray[i+5000], CSVArray[i+6000], CSVArray[i+7000]);
 
         //printf("%d ", i);
+
+
         i++;
+
     }
+
+    printf("%f", CSVArray[533+1000]);
 
     fclose(filepntr);
     return 0;
 }
-
-void free(void *CSVArray);
