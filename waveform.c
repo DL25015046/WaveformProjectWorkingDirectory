@@ -1,8 +1,8 @@
 # include "waveform.h"
 #include "inputoutput.h"
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+//#include <string.h>
+//#include <stdlib.h>
 #include <math.h>
 
 float computeRMSVoltage(CSVValues *structArray, int n) { // n = 1 -> phase A, N = 2 -> phase B, n = 3 -> phase C
@@ -97,4 +97,45 @@ float computeDCOffset(CSVValues *structArray, int n) { // n = 1 -> phase A, N = 
             return 999999;
     }
     return (sumOfVoltages / 1000);
+}
+
+float computePeakToPeakAmp(CSVValues *structArray, int n) { // n = 1 -> phase A, N = 2 -> phase B, n = 3 -> phase C
+    float largestVoltage = 0;
+    float smallestVoltage = 0;
+    switch (n) {
+        case 1:
+            for (int i = 0; i < 1000; i++) {
+                if (structArray[i].phaseA > largestVoltage) {
+                    largestVoltage = structArray[i].phaseA;
+                }
+                if (structArray[i].phaseA < smallestVoltage) {
+                    smallestVoltage = structArray[i].phaseA;
+                }
+            }
+            break;
+        case 2:
+            for (int i = 0; i < 1000; i++) {
+                if (structArray[i].phaseB > largestVoltage) {
+                    largestVoltage = structArray[i].phaseB;
+                }
+                if (structArray[i].phaseB < smallestVoltage) {
+                    smallestVoltage = structArray[i].phaseB;
+                }
+            }
+            break;
+        case 3:
+            for (int i = 0; i < 1000; i++) {
+                if (structArray[i].phaseC > largestVoltage) {
+                    largestVoltage = structArray[i].phaseC;
+                }
+                if (structArray[i].phaseC < smallestVoltage) {
+                    smallestVoltage = structArray[i].phaseC;
+                }
+            }
+            break;
+        default:
+            printf("Invalid value of n entered (only values 1 and 3 are valid).\n");
+            return 0;
+    }
+    return (largestVoltage - smallestVoltage);
 }
