@@ -2,7 +2,7 @@
 
 ## User Operation
 
-**[LINK TO GITHUB]()**
+**[LINK TO GITHUB](https://github.com/DL25015046/WaveformProjectWorkingDirectory)**
 
 **1.** Find and download the CSV file, of which **must be** 1 to 1000 rows along and 8 columns across
 (this program was designed with 1000 rows and 8 columns in mind, but the rows can vary from 1 to 1000)
