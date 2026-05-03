@@ -2,3 +2,5 @@
 #define UNTITLED_WAVEFORM_H
 #endif //UNTITLED_WAVEFORM_H
 
+float computeRMSVoltage();
+int checkIfRMSTolerant(float);
