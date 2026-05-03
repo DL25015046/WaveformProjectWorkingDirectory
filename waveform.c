@@ -1,8 +1,6 @@
 # include "waveform.h"
 #include "inputoutput.h"
 #include <stdio.h>
-//#include <string.h>
-//#include <stdlib.h>
 #include <math.h>
 
 float computeRMSVoltage(CSVValues *structArray, int n) { // n = 1 -> phase A, N = 2 -> phase B, n = 3 -> phase C

@@ -2,6 +2,7 @@
 #define UNTITLED_INPUTOUTPUT_H
 
 float readCSVFile();
+float compileReport();
 
 typedef struct {
     float timestamp;

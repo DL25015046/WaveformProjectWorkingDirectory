@@ -1,6 +1,5 @@
 #ifndef UNTITLED_WAVEFORM_H
 #define UNTITLED_WAVEFORM_H
-#include "inputoutput.h"
 
 float computeRMSVoltage();
 int checkIfRMSTolerant(float);
