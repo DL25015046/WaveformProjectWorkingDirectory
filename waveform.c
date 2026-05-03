@@ -8,7 +8,7 @@
 float computeRMSVoltage(CSVValues *structArray, int n) { // n = 1 -> phase A, N = 2 -> phase B, n = 3 -> phase C
     float sumOfSqVoltages = 0;
     float finalRMS = 0;
-    switch (n) { //
+    switch (n) {
         case 1:
             for (int i = 0; i < 1000; i++) {
                 sumOfSqVoltages = sumOfSqVoltages + (structArray[i].phaseA * structArray[i].phaseA);
@@ -72,4 +72,29 @@ int checkIfTHDCompliant(CSVValues *structArray) { // returns 2 on >8%, 1 for 5%-
         }
     }
     return 0;
+}
+
+float computeDCOffset(CSVValues *structArray, int n) { // n = 1 -> phase A, N = 2 -> phase B, n = 3 -> phase C
+    float sumOfVoltages = 0;
+    switch (n) {
+        case 1:
+            for (int i = 0; i < 1000; i++) {
+                sumOfVoltages = sumOfVoltages + structArray[i].phaseA;
+            }
+            break;
+        case 2:
+            for (int i = 0; i < 1000; i++) {
+                sumOfVoltages = sumOfVoltages + structArray[i].phaseB;
+            }
+            break;
+        case 3:
+            for (int i = 0; i < 1000; i++) {
+                sumOfVoltages = sumOfVoltages + structArray[i].phaseC;
+            }
+            break;
+        default:
+            printf("Invalid value of n entered (only values 1, 2 and 3 are valid).\n");
+            return 999999;
+    }
+    return (sumOfVoltages / 1000);
 }

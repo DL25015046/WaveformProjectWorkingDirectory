@@ -1,8 +1,8 @@
 #ifndef UNTITLED_INPUTOUTPUT_H
 #define UNTITLED_INPUTOUTPUT_H
-#endif //UNTITLED_INPUTOUTPUT_H
 
 float readCSVFile();
+
 typedef struct {
     float timestamp;
     float phaseA;
@@ -13,3 +13,5 @@ typedef struct {
     float powerFactor;
     float THD;
 } CSVValues;
+
+#endif //UNTITLED_WAVEFORM_H
