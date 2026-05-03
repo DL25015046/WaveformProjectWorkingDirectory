@@ -4,3 +4,4 @@
 
 float computeRMSVoltage();
 int checkIfRMSTolerant(float);
+void checkForClipping();

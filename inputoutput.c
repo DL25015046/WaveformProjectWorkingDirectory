@@ -47,8 +47,6 @@ float readCSVFile(CSVValues *structArray) {
 
     }
 
-    //printf("%f", CSVArray[533+1000]);
-
     fclose(filepntr);
     return 0;
 }

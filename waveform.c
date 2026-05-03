@@ -32,11 +32,34 @@ float computeRMSVoltage(CSVValues *structArray, int n) { // n = 1 -> phase A, N 
     return finalRMS;
 }
 
-int checkIfRMSTolerant(float finalRMS) { 
+int checkIfRMSTolerant(float finalRMS) {
     if (finalRMS <= 253 && finalRMS >= 207) {
         return 1; // returned 1 = compliant
     } else {
         return 0; // returned 0 = noncompliant
+    }
+}
+
+void checkForClipping(float *clippingArray, CSVValues *structArray) {
+    int j = 0;
+    while (j < 1000) {
+        clippingArray[j] = 0;
+        j++;
+    }
+    for (int i = 0; i < 1000; i++) {
+        if (structArray[i].phaseA == 325 || structArray[i].phaseA == -325) {
+            clippingArray[i+2] = 1;;
+        }
+    }
+    for (int i = 0; i < 1000; i++) {
+        if (structArray[i].phaseB == 325 || structArray[i].phaseB == -325) {
+            clippingArray[i+2] = 1;;
+        }
+    }
+    for (int i = 0; i < 1000; i++) {
+        if (structArray[i].phaseC == 325 || structArray[i].phaseC == -325) {
+            clippingArray[i+2] = 1;;
+        }
     }
 }
 
