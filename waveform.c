@@ -63,3 +63,13 @@ void checkForClipping(float *clippingArray, CSVValues *structArray) {
     }
 }
 
+int checkIfTHDCompliant(CSVValues *structArray) { // returns 2 on >8%, 1 for 5%-8%, 0 for <5%
+    for (int i = 0; i < 1000; i++) {
+        if (structArray[i].THD > 8) {
+            return 2;
+        } else if (structArray[i].THD <= 8 && structArray[i].THD >= 5) {
+            return 1;
+        }
+    }
+    return 0;
+}
