@@ -28,6 +28,9 @@ The project can be run if the files are together in a dedicated project on any c
 In CLion, once your files are placed into the same project (typically through navigating your own file explorer),
 navigate to the top-left four-line-stack menu.
 
-Click it, move to the "Build" section, and build the project. From there, your project is built.
+Click it, move to the "Build" section, and build the project. From there, your project is built. You will see
+the output filepath of the built project in the command line interface of the IDE (CLion): check there for an
+executable of the project.
+
 You can easily run your project from within the IDE (for example, on CLion, the project can be run immediately
 with Shift+F10 or by navigating to the green "run" button at the top-right of the corner.)
